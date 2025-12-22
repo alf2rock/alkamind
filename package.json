@@ -1,58 +1,18 @@
 {
-  "name": "alkamind-react",
-  "version": "0.1.0",
+  "name": "alkamind",
+  "type": "module",
   "private": true,
-  "main": "sass/mystyles.scss",
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.11.9",
-    "@testing-library/react": "^11.2.3",
-    "@testing-library/user-event": "^12.6.0",
-    "node-sass": "^4.14.1",
-    "normalize.css": "^8.0.1",
-    "react": "^17.0.1",
-    "react-bulma-components": "^3.4.0",
-    "react-dom": "^17.0.1",
-    "react-router-dom": "^5.2.0",
-    "react-router-hash-link": "^2.3.1",
-    "react-scripts": "4.0.1",
-    "web-vitals": "^0.2.4"
-  },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "scss": "node-sass --watch sass/mystyles.scss -w src/css/mystyles.css",
-    "css-build": "node-sass --omit-source-map-url sass/mystyles.scss src/css/mystyles.css",
-    "css-watch": "npm run css-build -- --watch",
-    "lint": "eslint --fix --ext .js,.jsx ."
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "bulma": "^0.9.1",
-    "eslint": "^7.18.0",
-    "eslint-config-standard": "^16.0.2",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-react": "^7.22.0",
-    "node-sass": "^4.9.2"
+  "dependencies": {
+    "@nuxtjs/tailwindcss": "^6.14.0",
+    "nuxt": "^4.2.2",
+    "vue": "^3.5.25",
+    "vue-router": "^4.6.4"
   }
 }

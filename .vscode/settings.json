@@ -1,9 +1,0 @@
-{
-  "appService.zipIgnorePattern": [
-    "node_modules{,/**}",
-    ".vscode{,/**}"
-  ],
-  "appService.defaultWebAppToDeploy": "/subscriptions/fc002c60-7ae1-4809-937d-ec3ac9e83dfc/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/alkamind",
-  "appService.deploySubpath": "."
-}
-
