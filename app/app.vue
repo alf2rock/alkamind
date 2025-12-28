@@ -1,3 +1,9 @@
+<script setup lang="ts">
+const { getHomePage } = useContentful()
+
+const { data: homepage } = await useAsyncData('homepage', () => getHomePage())
+</script>
+
 <template>
   <div class="min-h-screen bg-gradient-to-b from-slate-50 to-blue-50" style="font-family: 'Times New Roman', Times, serif;">
     <!-- Header with Logo -->
@@ -9,21 +15,21 @@
     <section class="px-6 py-20 md:py-32">
       <div class="max-w-4xl mx-auto text-center">
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-blue-900 mb-6 leading-tight">
-          Change Management & Application Development
+          {{ homepage?.heroTitle || 'Change Management & Application Development' }}
         </h1>
         <div class="text-lg md:text-xl text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed space-y-4">
-          <p>We are dedicated to providing small businesses with eComm and AI solutions to protect their viability and position them into the Age of AI. Most importantly we are committed to doing it while aggressively protecting your investments until you start to feel the positive result.</p>
-          <p>Let's wait until you love the solution before you part with too much of your money.</p>
-          <p>Explore the site at your leisure and reach out via email or phone.</p>
-          <p>There's also a Calendly booking system to book a session for us to appreciate your perspective and needs.</p>
+          <div v-if="homepage?.heroSubtitle" v-html="renderRichText(homepage.heroSubtitle)"></div>
+          <template v-else>
+            <p>We are dedicated to providing small businesses with eComm and AI solutions to protect their viability and position them into the Age of AI.</p>
+          </template>
         </div>
         <a
-          href="https://calendly.com/alf-alkamind/coaching-session?embed_domain=alkamind.com&embed_type=Inline&text_color=363636&primary_color=ca6c26&back=1"
+          :href="homepage?.callToActionLink || 'https://calendly.com/alf-alkamind/coaching-session'"
           target="_blank"
           rel="noopener noreferrer"
           class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 rounded-lg text-lg transition-colors duration-200 shadow-lg hover:shadow-xl"
         >
-          Book a Session
+          {{ homepage?.callToActionText || 'Book a Session' }}
         </a>
       </div>
     </section>
