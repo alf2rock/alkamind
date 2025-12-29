@@ -1,5 +1,37 @@
 import { createClient } from 'contentful'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
+import { BLOCKS, INLINES } from '@contentful/rich-text-types'
+
+// Custom rendering options for rich text with Tailwind styling
+const richTextOptions = {
+  renderNode: {
+    [BLOCKS.PARAGRAPH]: (node: any, next: any) =>
+      `<p class="mb-4">${next(node.content)}</p>`,
+    [BLOCKS.HEADING_1]: (node: any, next: any) =>
+      `<h1 class="text-3xl font-bold mb-4">${next(node.content)}</h1>`,
+    [BLOCKS.HEADING_2]: (node: any, next: any) =>
+      `<h2 class="text-2xl font-semibold mb-3">${next(node.content)}</h2>`,
+    [BLOCKS.HEADING_3]: (node: any, next: any) =>
+      `<h3 class="text-xl font-semibold mb-2">${next(node.content)}</h3>`,
+    [BLOCKS.UL_LIST]: (node: any, next: any) =>
+      `<ul class="list-disc pl-6 mb-4">${next(node.content)}</ul>`,
+    [BLOCKS.OL_LIST]: (node: any, next: any) =>
+      `<ol class="list-decimal pl-6 mb-4">${next(node.content)}</ol>`,
+    [BLOCKS.LIST_ITEM]: (node: any, next: any) =>
+      `<li class="mb-1">${next(node.content)}</li>`,
+    [BLOCKS.QUOTE]: (node: any, next: any) =>
+      `<blockquote class="border-l-4 border-blue-600 pl-4 italic my-4">${next(node.content)}</blockquote>`,
+    [BLOCKS.HR]: () =>
+      `<hr class="my-6 border-slate-300" />`,
+    [BLOCKS.EMBEDDED_ASSET]: (node: any) => {
+      const { title, file } = node.data.target.fields
+      const url = file.url.startsWith('//') ? `https:${file.url}` : file.url
+      return `<img src="${url}" alt="${title || ''}" class="max-w-full h-auto my-4 rounded" />`
+    },
+    [INLINES.HYPERLINK]: (node: any, next: any) =>
+      `<a href="${node.data.uri}" class="text-blue-600 hover:underline">${next(node.content)}</a>`
+  }
+}
 
 export const useContentful = () => {
   const config = useRuntimeConfig()
@@ -27,7 +59,7 @@ export const renderRichText = (richText: any): string => {
   if (!richText) return ''
   if (typeof richText === 'string') return richText
   if (richText.nodeType === 'document') {
-    return documentToHtmlString(richText)
+    return documentToHtmlString(richText, richTextOptions)
   }
   return String(richText)
 }
