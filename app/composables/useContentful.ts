@@ -55,9 +55,71 @@ export const useContentful = () => {
     return entries.items[0]?.fields
   }
 
+  const getOurStoryPage = async () => {
+    const entries = await client.getEntries({
+      content_type: 'ourStoryPage',
+      limit: 1
+    })
+    return entries.items[0]?.fields
+  }
+
+  const getAboutPage = async () => {
+    const entries = await client.getEntries({
+      content_type: 'aboutPage',
+      limit: 1
+    })
+    return entries.items[0]?.fields
+  }
+
+  const getBlogPosts = async () => {
+    const entries = await client.getEntries({
+      content_type: 'blogPost',
+      order: ['-fields.date']
+    })
+    return entries.items.map(item => ({
+      ...item.fields,
+      id: item.sys.id
+    }))
+  }
+
+  const getBlogPost = async (slug: string) => {
+    const entries = await client.getEntries({
+      content_type: 'blogPost',
+      'fields.slug': slug,
+      limit: 1
+    })
+    return entries.items[0]?.fields
+  }
+
+  const getAIPortals = async () => {
+    const entries = await client.getEntries({
+      content_type: 'aiPortal'
+    })
+    return entries.items.map(item => ({
+      ...item.fields,
+      id: item.sys.id
+    }))
+  }
+
+  const getUseCases = async () => {
+    const entries = await client.getEntries({
+      content_type: 'useCase'
+    })
+    return entries.items.map(item => ({
+      ...item.fields,
+      id: item.sys.id
+    }))
+  }
+
   return {
     client,
-    getHomePage
+    getHomePage,
+    getOurStoryPage,
+    getAboutPage,
+    getBlogPosts,
+    getBlogPost,
+    getAIPortals,
+    getUseCases
   }
 }
 
