@@ -57,7 +57,7 @@ export const useContentful = () => {
 
   const getOurStoryPage = async () => {
     const entries = await client.getEntries({
-      content_type: 'ourStoryPage',
+      content_type: 'ourStory',
       limit: 1
     })
     return entries.items[0]?.fields
