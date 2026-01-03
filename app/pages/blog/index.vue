@@ -41,13 +41,14 @@ const formatDate = (dateString: string) => {
             <NuxtLink :to="`/blog/${post.slug}`" class="block p-6">
               <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
                 <h2 class="text-xl font-semibold text-blue-800 hover:text-blue-600 transition-colors">
-                  {{ post.title }}
+                  {{ post.blogPost }}
                 </h2>
                 <span class="text-sm text-slate-500 mt-2 md:mt-0">
-                  {{ formatDate(post.date) }}
+                  {{ formatDate(post.publishDate) }}
                 </span>
               </div>
-              <p v-if="post.author" class="text-sm text-slate-600">
+              <p v-if="post.excerpt" class="text-slate-600 mb-2" v-html="renderRichText(post.excerpt)"></p>
+              <p v-if="post.author" class="text-sm text-slate-500">
                 By {{ post.author }}
               </p>
             </NuxtLink>

@@ -74,7 +74,7 @@ export const useContentful = () => {
   const getBlogPosts = async () => {
     const entries = await client.getEntries({
       content_type: 'blogPost',
-      order: ['-fields.date']
+      order: ['-fields.publishDate']
     })
     return entries.items.map(item => ({
       ...item.fields,
