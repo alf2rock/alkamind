@@ -1,11 +1,11 @@
 <script setup lang="ts">
-const { getHomePage } = useContentful()
-
-const { data: homepage } = await useAsyncData('homepage', () => getHomePage())
+const { data: home } = await useAsyncData('home', () =>
+  queryContent('/pages/home').findOne()
+)
 
 useSeoMeta({
-  title: homepage.value?.metaTitle || 'Alkamind Consulting Inc.',
-  description: homepage.value?.metaDescription || 'Change Management & Application Development consultancy helping small businesses with eComm and AI solutions.',
+  title: 'Alkamind Consulting Inc.',
+  description: 'Change Management & Application Development consultancy helping small businesses with eComm and AI solutions.',
 })
 </script>
 
@@ -15,21 +15,18 @@ useSeoMeta({
     <section class="px-6 py-20 md:py-32">
       <div class="max-w-4xl mx-auto text-center">
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-blue-900 mb-6 leading-tight">
-          {{ homepage?.heroTitle || 'Change Management & Application Development' }}
+          {{ home?.title || 'Change Management & Application Development' }}
         </h1>
         <div class="text-lg md:text-xl text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed space-y-4">
-          <div v-if="homepage?.heroSubtitle" v-html="renderRichText(homepage.heroSubtitle)"></div>
-          <template v-else>
-            <p>We are dedicated to providing small businesses with eComm and AI solutions to protect their viability and position them into the Age of AI.</p>
-          </template>
+          <p>{{ home?.subtitle || 'We are dedicated to providing small businesses with eComm and AI solutions to protect their viability and position them into the Age of AI.' }}</p>
         </div>
         <a
-          :href="homepage?.callToActionLink || 'https://calendly.com/alf-alkamind/coaching-session'"
+          :href="home?.ctaLink || 'https://calendly.com/alf-alkamind/coaching-session'"
           target="_blank"
           rel="noopener noreferrer"
           class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 rounded-lg text-lg transition-colors duration-200 shadow-lg hover:shadow-xl"
         >
-          {{ homepage?.callToActionText || 'Book a Session' }}
+          {{ home?.ctaText || 'Book a Session' }}
         </a>
       </div>
     </section>

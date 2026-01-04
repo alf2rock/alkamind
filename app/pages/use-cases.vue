@@ -1,7 +1,6 @@
 <script setup lang="ts">
-const { getUseCases } = useContentful()
-
-const { data: useCases } = await useAsyncData('useCases', () => getUseCases())
+// Placeholder content - will be replaced with Nuxt Content in Phase 3
+const useCases: any[] = []
 
 useSeoMeta({
   title: 'Use Cases | Alkamind',
@@ -25,7 +24,7 @@ useSeoMeta({
         <div v-if="useCases && useCases.length > 0" class="space-y-8">
           <article
             v-for="useCase in useCases"
-            :key="useCase.id"
+            :key="useCase.title"
             class="bg-white rounded-lg shadow-sm border border-slate-200 overflow-hidden"
           >
             <div class="p-6 md:p-8">
@@ -38,31 +37,28 @@ useSeoMeta({
                 </span>
               </div>
 
-              <!-- Challenge -->
               <div v-if="useCase.challenge" class="mb-6">
                 <h3 class="text-lg font-semibold text-slate-700 mb-2 flex items-center">
                   <span class="w-2 h-2 bg-red-500 rounded-full mr-2"></span>
                   Challenge
                 </h3>
-                <div class="text-slate-600 pl-4" v-html="renderRichText(useCase.challenge)"></div>
+                <p class="text-slate-600 pl-4">{{ useCase.challenge }}</p>
               </div>
 
-              <!-- Solution -->
               <div v-if="useCase.solution" class="mb-6">
                 <h3 class="text-lg font-semibold text-slate-700 mb-2 flex items-center">
                   <span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
                   Solution
                 </h3>
-                <div class="text-slate-600 pl-4" v-html="renderRichText(useCase.solution)"></div>
+                <p class="text-slate-600 pl-4">{{ useCase.solution }}</p>
               </div>
 
-              <!-- Results -->
               <div v-if="useCase.results">
                 <h3 class="text-lg font-semibold text-slate-700 mb-2 flex items-center">
                   <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
                   Results
                 </h3>
-                <div class="text-slate-600 pl-4" v-html="renderRichText(useCase.results)"></div>
+                <p class="text-slate-600 pl-4">{{ useCase.results }}</p>
               </div>
             </div>
           </article>

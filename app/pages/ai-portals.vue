@@ -1,19 +1,11 @@
 <script setup lang="ts">
-const { getAIPortals } = useContentful()
-
-const { data: portals } = await useAsyncData('aiPortals', () => getAIPortals())
+// Placeholder content - will be replaced with Nuxt Content in Phase 3
+const portals: any[] = []
 
 useSeoMeta({
   title: 'AI Portals | Alkamind',
   description: 'Explore AI tools and solutions from Alkamind Consulting Inc.',
 })
-
-// Get icon URL from portal
-const getIconUrl = (portal: any) => {
-  if (!portal?.icon?.fields?.file?.url) return null
-  const url = portal.icon.fields.file.url
-  return url.startsWith('//') ? `https:${url}` : url
-}
 </script>
 
 <template>
@@ -32,21 +24,14 @@ const getIconUrl = (portal: any) => {
         <div v-if="portals && portals.length > 0" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           <a
             v-for="portal in portals"
-            :key="portal.id"
+            :key="portal.title"
             :href="portal.link"
             target="_blank"
             rel="noopener noreferrer"
             class="bg-white rounded-lg shadow-sm border border-slate-200 p-6 hover:shadow-lg hover:border-blue-300 transition-all group"
           >
             <div class="flex items-start gap-4">
-              <div v-if="getIconUrl(portal)" class="flex-shrink-0">
-                <img
-                  :src="getIconUrl(portal)"
-                  :alt="portal.title"
-                  class="w-12 h-12 rounded-lg object-cover"
-                />
-              </div>
-              <div v-else class="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+              <div class="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
@@ -54,9 +39,6 @@ const getIconUrl = (portal: any) => {
               <div class="flex-1">
                 <h2 class="text-lg font-semibold text-blue-800 group-hover:text-blue-600 transition-colors mb-2">
                   {{ portal.title }}
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline-block ml-1 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
                 </h2>
                 <p class="text-slate-600 text-sm">
                   {{ portal.description }}

@@ -1,13 +1,12 @@
 <script setup lang="ts">
 const route = useRoute()
-const { getBlogPost } = useContentful()
-
-const slug = route.params.slug as string
-const { data: post } = await useAsyncData(`blogPost-${slug}`, () => getBlogPost(slug))
+const { data: post } = await useAsyncData(`blog-${route.path}`, () =>
+  queryContent(route.path).findOne()
+)
 
 useSeoMeta({
-  title: post.value?.blogPost ? `${post.value.blogPost} | Alkamind Blog` : 'Blog Post | Alkamind',
-  description: post.value?.blogPost || 'Read this article from Alkamind Consulting.',
+  title: post.value?.title ? `${post.value.title} | Alkamind Blog` : 'Blog Post | Alkamind',
+  description: post.value?.excerpt || 'Read this article from Alkamind Consulting.',
 })
 
 const formatDate = (dateString: string) => {
@@ -19,13 +18,6 @@ const formatDate = (dateString: string) => {
     day: 'numeric'
   })
 }
-
-// Get image URL if available
-const imageUrl = computed(() => {
-  if (!post.value?.image?.fields?.file?.url) return null
-  const url = post.value.image.fields.file.url
-  return url.startsWith('//') ? `https:${url}` : url
-})
 </script>
 
 <template>
@@ -44,21 +36,13 @@ const imageUrl = computed(() => {
         </NuxtLink>
 
         <article v-if="post">
-          <!-- Featured Image -->
-          <img
-            v-if="imageUrl"
-            :src="imageUrl"
-            :alt="post.blogPost"
-            class="w-full rounded-lg shadow-md mb-8"
-          />
-
           <!-- Header -->
           <header class="mb-8">
             <h1 class="text-3xl md:text-4xl font-bold text-blue-900 mb-4">
-              {{ post.blogPost }}
+              {{ post.title }}
             </h1>
             <div class="flex flex-wrap items-center gap-4 text-slate-600">
-              <span v-if="post.publishDate">{{ formatDate(post.publishDate) }}</span>
+              <span v-if="post.date">{{ formatDate(post.date) }}</span>
               <span v-if="post.author" class="flex items-center">
                 <span class="w-1 h-1 bg-slate-400 rounded-full mx-3"></span>
                 By {{ post.author }}
@@ -67,11 +51,9 @@ const imageUrl = computed(() => {
           </header>
 
           <!-- Content -->
-          <div
-            v-if="post.body"
-            class="prose prose-lg max-w-none text-slate-700"
-            v-html="renderRichText(post.body)"
-          ></div>
+          <div class="prose prose-lg max-w-none text-slate-700">
+            <ContentRenderer :value="post" />
+          </div>
         </article>
 
         <!-- Post not found -->

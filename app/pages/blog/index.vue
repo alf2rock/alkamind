@@ -1,7 +1,7 @@
 <script setup lang="ts">
-const { getBlogPosts } = useContentful()
-
-const { data: posts } = await useAsyncData('blogPosts', () => getBlogPosts())
+const { data: posts } = await useAsyncData('blog-posts', () =>
+  queryContent('/blog').sort({ date: -1 }).find()
+)
 
 useSeoMeta({
   title: 'Blog | Alkamind',
@@ -35,19 +35,19 @@ const formatDate = (dateString: string) => {
         <div v-if="posts && posts.length > 0" class="space-y-8">
           <article
             v-for="post in posts"
-            :key="post.id"
+            :key="post._path"
             class="bg-white rounded-lg shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow"
           >
-            <NuxtLink :to="`/blog/${post.slug}`" class="block p-6">
+            <NuxtLink :to="post._path" class="block p-6">
               <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
                 <h2 class="text-xl font-semibold text-blue-800 hover:text-blue-600 transition-colors">
-                  {{ post.blogPost }}
+                  {{ post.title }}
                 </h2>
                 <span class="text-sm text-slate-500 mt-2 md:mt-0">
-                  {{ formatDate(post.publishDate) }}
+                  {{ formatDate(post.date) }}
                 </span>
               </div>
-              <p v-if="post.excerpt" class="text-slate-600 mb-2" v-html="renderRichText(post.excerpt)"></p>
+              <p v-if="post.excerpt" class="text-slate-600 mb-2">{{ post.excerpt }}</p>
               <p v-if="post.author" class="text-sm text-slate-500">
                 By {{ post.author }}
               </p>

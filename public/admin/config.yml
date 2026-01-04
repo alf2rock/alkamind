@@ -1,0 +1,46 @@
+backend:
+  name: git-gateway
+  branch: nuxt-rebuild
+
+media_folder: public/images
+public_folder: /images
+
+collections:
+  - name: pages
+    label: Pages
+    files:
+      - name: home
+        label: Home Page
+        file: content/pages/home.md
+        fields:
+          - { name: title, label: Title, widget: string }
+          - { name: subtitle, label: Subtitle, widget: text }
+          - { name: ctaText, label: CTA Button Text, widget: string }
+          - { name: ctaLink, label: CTA Button Link, widget: string }
+
+      - name: our-story
+        label: Our Story
+        file: content/pages/our-story.md
+        fields:
+          - { name: title, label: Title, widget: string }
+          - { name: body, label: Body, widget: markdown }
+
+      - name: about
+        label: About
+        file: content/pages/about.md
+        fields:
+          - { name: title, label: Title, widget: string }
+          - { name: body, label: Body, widget: markdown }
+
+  - name: blog
+    label: Blog Posts
+    folder: content/blog
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: slug, label: Slug, widget: string }
+      - { name: date, label: Date, widget: datetime }
+      - { name: author, label: Author, widget: string }
+      - { name: excerpt, label: Excerpt, widget: text }
+      - { name: body, label: Body, widget: markdown }
