@@ -5,8 +5,8 @@ backend:
 # Editorial workflow enables draft/review/publish states
 publish_mode: editorial_workflow
 
-media_folder: public/images
-public_folder: /images
+media_folder: public/uploads
+public_folder: /uploads
 
 collections:
   - name: pages
@@ -61,3 +61,4 @@ collections:
       - { name: author, label: Author, widget: string }
       - { name: excerpt, label: Excerpt, widget: text }
       - { name: body, label: Body, widget: markdown }
+      - { name: attachment, label: Attachment (PDF/Document), widget: file, required: false }
