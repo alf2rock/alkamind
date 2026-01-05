@@ -14,7 +14,7 @@ Alkamind website built with Nuxt 4 and Vue 3. This is a rebuild from a previous 
 ```bash
 npm run dev       # Start dev server at http://localhost:3000
 npm run build     # Build for production
-npm run generate  # Generate static site (for Cloudflare Pages)
+npm run generate  # Generate static site (for Netlify)
 npm run preview   # Preview production build locally
 ```
 
@@ -28,9 +28,12 @@ This project uses Nuxt 4's app directory structure:
   - `components/` - Auto-imported Vue components
   - `layouts/` - Page layouts
   - `composables/` - Auto-imported composables
-    - `useContentful.ts` - Contentful CMS integration & rich text rendering
-- `nuxt.config.ts` - Nuxt configuration with Contentful runtime config
-- `public/` - Static assets served at root
+- `content/` - Markdown content files (managed by Decap CMS)
+  - `pages/` - Static page content (home, about, our-story, etc.)
+  - `blog/` - Blog posts
+- `public/admin/` - Decap CMS admin interface
+- `nuxt.config.ts` - Nuxt configuration
+- `netlify.toml` - Netlify deployment config
 
 Nuxt auto-imports components, composables, and utilities - no manual imports needed.
 
@@ -42,72 +45,104 @@ Nuxt auto-imports components, composables, and utilities - no manual imports nee
 
 ## Integrations
 
-- **Contentful CMS** — Headless content management
+- **Decap CMS** — Git-based headless CMS (content stored as markdown in repo)
+- **Nuxt Content** — Markdown parsing and querying
 - **Tailwind CSS** — Styling
-- **Cloudflare Pages** — Hosting with automatic deploys
+- **Netlify** — Hosting with Git Gateway for CMS auth
 - **Calendly** — Booking integration
 
-## Contentful CMS Integration
+## Decap CMS Integration
 
-### Content Types
+### How It Works
 
-| Content Type | API ID | Purpose |
-|--------------|--------|---------|
-| Home Page | `homePage` | Landing page content |
+Decap CMS (formerly Netlify CMS) is a Git-based CMS. Content is stored as markdown files in the `content/` directory and committed to the repository. No external API or database required.
 
-### Home Page Fields
-
-| Field | Type | Description |
-|-------|------|-------------|
-| heroTitle | Short text | Main headline (plain text) |
-| heroSubtitle | Rich text | Supporting text with formatting |
-| heroImage | Media | Logo or hero image |
-| callToActionText | Short text | Button label |
-| callToActionLink | Short text | Button URL (Calendly) |
-| metaTitle | Short text | SEO title |
-| metaDescription | Long text | SEO description |
-
-### Rich Text Rendering
-
-The `useContentful.ts` composable includes a `renderRichText()` function that converts Contentful rich text to styled HTML.
-
-**Supported elements with Tailwind styling:**
-- Headings (H1-H6) - sized and bold
-- Paragraphs - with bottom margin
-- Lists (bulleted and numbered) - with indentation
-- Blockquotes - blue left border, italic
-- Hyperlinks - blue with hover underline
-- Embedded images - responsive, rounded corners
-- Horizontal rules - subtle divider
-
-**Usage in Vue templates:**
-```vue
-<div v-html="renderRichText(homepage.heroSubtitle)" />
+**Data flow:**
+```
+Decap Admin UI → Git commit → content/*.md → Nuxt Content → Vue pages
 ```
 
-Note: Use `v-html` directive, not `{{ }}` interpolation, because `renderRichText` returns HTML strings.
+### Admin Interface
+
+- **URL**: `/admin` (e.g., `http://localhost:3000/admin`)
+- **Config**: `public/admin/config.yml`
+- **Auth**: Netlify Identity (Git Gateway)
+
+### Content Structure
+
+```
+content/
+├── pages/
+│   ├── home.md        # Home page content
+│   ├── about.md       # About page
+│   ├── our-story.md   # Our Story page
+│   ├── use-cases.md   # Use Cases page
+│   └── ai-portals.md  # AI Portals page
+└── blog/
+    └── (blog posts created via CMS)
+```
+
+### Page Fields
+
+**Home Page** (`content/pages/home.md`):
+- `title` - Main headline
+- `subtitle` - Supporting text (markdown)
+- `ctaText` - Call-to-action button label
+- `ctaLink` - CTA button URL (Calendly link)
+
+**Other Pages** (`about.md`, `our-story.md`, etc.):
+- `title` - Page title
+- `body` - Page content (markdown)
+
+**Blog Posts** (`content/blog/*.md`):
+- `title`, `slug`, `date`, `author`, `excerpt`, `body`
+
+### Querying Content in Vue Pages
+
+Use Nuxt Content's `queryContent()` composable:
+
+```vue
+<script setup>
+const { data: home } = await useAsyncData('home', () =>
+  queryContent('/pages/home').findOne()
+)
+</script>
+
+<template>
+  <h1>{{ home.title }}</h1>
+  <ContentRenderer :value="home" />
+</template>
+```
 
 ### Content Update Workflow
 
-1. Edit content in Contentful
-2. Click **Publish** in Contentful
-3. Go to Cloudflare Pages → Deployments → **Retry deployment**
-4. Wait ~30 seconds for rebuild
-5. Site shows new content
+**Via Admin UI:**
+1. Go to `/admin` and log in
+2. Edit content and save
+3. Changes are committed to Git automatically
+4. Netlify rebuilds and deploys
 
-Optional: Set up a webhook in Contentful to auto-trigger Cloudflare rebuilds on publish.
+**Via Direct Edit:**
+1. Edit markdown files in `content/` directory
+2. Commit and push to `nuxt-rebuild`
+3. Netlify rebuilds automatically
+
+### Editorial Workflow
+
+The CMS has editorial workflow enabled (`publish_mode: editorial_workflow`), which means:
+- New content starts as **Draft**
+- Can be moved to **In Review**
+- Then **Published** (merged to branch)
 
 ## Environment Variables
 
-Required in `.env` (local) and Cloudflare Pages settings:
+Required in Netlify settings (not needed locally for basic dev):
 
 ```
-CONTENTFUL_SPACE_ID=xxx
-CONTENTFUL_ACCESS_TOKEN=xxx
 NODE_VERSION=20
 ```
 
-Never commit `.env` to git.
+For local Decap CMS testing with backend, you may need Netlify CLI or local Git Gateway setup.
 
 ## Design Requirements
 
@@ -129,9 +164,10 @@ Never commit `.env` to git.
 - "Hide this on mobile" / "Make this full width"
 
 ### Content Tweaks
-- "Change the headline to..." / "Update the phone number"
-- "Remove the phone number" / "Add a tagline"
+- Edit markdown files directly in `content/pages/`
+- Or use the `/admin` interface
 
 ### Structure Tweaks
 - "Create a new page for services"
 - "Add a nav bar" / "Extract the footer into its own component"
+- To add a new CMS-managed page: update `public/admin/config.yml`
