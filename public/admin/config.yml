@@ -2,6 +2,9 @@ backend:
   name: git-gateway
   branch: nuxt-rebuild
 
+# Editorial workflow enables draft/review/publish states
+publish_mode: editorial_workflow
+
 media_folder: public/images
 public_folder: /images
 
