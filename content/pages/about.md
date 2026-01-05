@@ -1,13 +1,13 @@
 ---
 title: About Us
 ---
-At Alkamind Consulting Inc., we specialize in Change Management and Application Development, helping organizations navigate complex transformations with confidence.
+At Alkamind Consulting we specialize in Change Management and Solution Development, to help organizations navigate transformations with positive outcomes.
 
-Our team brings decades of experience in enterprise technology, digital transformation, and AI implementation to help small businesses compete in today's fast-paced market.
+We bring decades of experience in enterprise technology, digital transformation. We have began the journey of AI adoption for small businesses to compete in today's fast-paced market.
 
-## Our Services we enjoy providing
+## Our Services
 
 * Change Management Consulting
 * Application Development
 * AI Solutions & Integration
-* eCommerce Strategy
+* eCommerce Implementation
