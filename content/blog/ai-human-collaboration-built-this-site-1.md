@@ -1,5 +1,5 @@
 ---
-title: AI-Human Collaboration Built this site
+title: AI-Human Collaboration's - Second Project
 slug: AI-Human-Team
 date: 2026-01-05T15:51:00.000-05:00
 author: Alfie
