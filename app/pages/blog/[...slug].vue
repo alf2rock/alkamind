@@ -50,6 +50,11 @@ const formatDate = (dateString: string) => {
             </div>
           </header>
 
+          <!-- Excerpt -->
+          <p v-if="post.excerpt" class="text-lg text-slate-600 italic border-l-4 border-blue-200 pl-4 mb-8">
+            {{ post.excerpt }}
+          </p>
+
           <!-- Content -->
           <div class="prose prose-lg max-w-none text-slate-700">
             <ContentRenderer :value="post" />
