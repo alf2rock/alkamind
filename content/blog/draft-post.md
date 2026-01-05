@@ -1,5 +1,5 @@
 ---
-title: Draft Post
+title: Crosshatch
 slug: workflow
 date: 2026-01-05T10:14:00.000-05:00
 author: Alf
