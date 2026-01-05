@@ -32,6 +32,20 @@ collections:
           - { name: title, label: Title, widget: string }
           - { name: body, label: Body, widget: markdown }
 
+      - name: ai-portals
+        label: AI Portals
+        file: content/pages/ai-portals.md
+        fields:
+          - { name: title, label: Title, widget: string }
+          - { name: body, label: Body, widget: markdown }
+
+      - name: use-cases
+        label: Use Cases
+        file: content/pages/use-cases.md
+        fields:
+          - { name: title, label: Title, widget: string }
+          - { name: body, label: Body, widget: markdown }
+
   - name: blog
     label: Blog Posts
     folder: content/blog
