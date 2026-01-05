@@ -1,5 +1,5 @@
 ---
-title: Change Management & Solution Development
+title: Alkamind
 subtitle: >+
   We are dedicated to providing small businesses with eCommerce and AI solutions
   to protect their viability and position them into the Age of AI. Most
