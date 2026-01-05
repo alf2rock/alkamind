@@ -1,5 +1,5 @@
 ---
-title: Change Management & Application Development
+title: Change Management & Solution Development
 subtitle: >+
   We are dedicated to providing small businesses with eComm and AI solutions to
   protect their viability and position them into the Age of AI.
