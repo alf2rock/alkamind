@@ -6,7 +6,7 @@ subtitle: >-
 
 
 
-  make change
+  make change...
 ctaText: Book a Session
 ctaLink: https://calendly.com/alf-alkamind/coaching-session
 ---
