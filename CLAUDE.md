@@ -95,7 +95,12 @@ content/
 - `body` - Page content (markdown)
 
 **Blog Posts** (`content/blog/*.md`):
-- `title`, `slug`, `date`, `author`, `excerpt`, `body`
+- `title` - Post title
+- `slug` - URL slug (also determines filename)
+- `date` - Publication date
+- `author` - Author name
+- `summary` - Post summary/excerpt (NOTE: Do NOT use `excerpt` - it's reserved by Nuxt Content)
+- `attachments` - List of file attachments (each has `label` and `file`)
 
 ### Querying Content in Vue Pages
 
@@ -171,3 +176,27 @@ For local Decap CMS testing with backend, you may need Netlify CLI or local Git 
 - "Create a new page for services"
 - "Add a nav bar" / "Extract the footer into its own component"
 - To add a new CMS-managed page: update `public/admin/config.yml`
+
+## Known Issues & Gotchas
+
+**IMPORTANT**: See `docs/memo-1-claude-code-decap-cms.md` for detailed troubleshooting guide.
+
+### Reserved Field Names
+- `excerpt` is reserved by Nuxt Content - use `summary` instead
+- `description` is auto-generated from first paragraph
+- Fields starting with `_` are internal Nuxt Content fields
+
+### CMS Admin Caching
+After changing `public/admin/config.yml`, users must hard refresh `/admin` (Ctrl+Shift+R) to see changes. Clearing site data in DevTools also works but logs out the user.
+
+### Blog Post URLs
+Nuxt Content uses the **filename** for URLs, not the `slug` frontmatter field. To change a post's URL, rename the markdown file.
+
+### Editorial Workflow Branches
+Drafts created before config changes won't have new fields. Either merge updates into the draft branch or recreate the draft.
+
+### Git Push Conflicts
+The CMS commits directly to the branch. If push fails, run `git pull --rebase` first.
+
+## Reference Documentation
+- `docs/memo-1-claude-code-decap-cms.md` - Troubleshooting guide for Decap CMS + Nuxt Content issues
