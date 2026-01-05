@@ -1,6 +1,6 @@
 ---
 title: AI-Human Collaboration Built this site
-slug: I-Human-Collab
+slug: AI-Human-Collab
 date: 2026-01-05T15:51:00.000-05:00
 author: Alf
 excerpt: >-
