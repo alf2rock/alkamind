@@ -61,4 +61,10 @@ collections:
       - { name: author, label: Author, widget: string }
       - { name: summary, label: Summary/Excerpt, widget: text }
       - { name: body, label: Body, widget: markdown }
-      - { name: attachment, label: Attachment (PDF/Document), widget: file, required: false }
+      - name: attachments
+        label: Attachments
+        widget: list
+        required: false
+        fields:
+          - { name: label, label: Label, widget: string }
+          - { name: file, label: File, widget: file }
