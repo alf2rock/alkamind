@@ -17,8 +17,8 @@ useSeoMeta({
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-blue-900 mb-6 leading-tight">
           {{ home?.title || 'Change Management & Application Development' }}
         </h1>
-        <div class="text-lg md:text-xl text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed space-y-4">
-          <p>{{ home?.subtitle || 'We are dedicated to providing small businesses with eComm and AI solutions to protect their viability and position them into the Age of AI.' }}</p>
+        <div class="text-lg md:text-xl text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed whitespace-pre-line">
+          {{ home?.subtitle || 'We are dedicated to providing small businesses with eComm and AI solutions to protect their viability and position them into the Age of AI.' }}
         </div>
         <a
           :href="home?.ctaLink || 'https://calendly.com/alf-alkamind/coaching-session'"
