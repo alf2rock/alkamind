@@ -47,7 +47,7 @@ const formatDate = (dateString: string) => {
                   {{ formatDate(post.date) }}
                 </span>
               </div>
-              <p v-if="post.excerpt" class="text-slate-600 mb-2">{{ post.excerpt }}</p>
+              <p v-if="post.summary" class="text-slate-600 mb-2">{{ post.summary }}</p>
               <p v-if="post.author" class="text-sm text-slate-500">
                 By {{ post.author }}
               </p>

@@ -6,7 +6,7 @@ const { data: post } = await useAsyncData(`blog-${route.path}`, () =>
 
 useSeoMeta({
   title: post.value?.title ? `${post.value.title} | Alkamind Blog` : 'Blog Post | Alkamind',
-  description: post.value?.excerpt || 'Read this article from Alkamind Consulting.',
+  description: post.value?.summary || 'Read this article from Alkamind Consulting.',
 })
 
 const formatDate = (dateString: string) => {
@@ -50,9 +50,9 @@ const formatDate = (dateString: string) => {
             </div>
           </header>
 
-          <!-- Excerpt -->
-          <p v-if="post.excerpt" class="text-lg text-slate-600 italic border-l-4 border-blue-200 pl-4 mb-8">
-            {{ post.excerpt }}
+          <!-- Summary/Excerpt -->
+          <p v-if="post.summary" class="text-lg text-slate-600 italic border-l-4 border-blue-200 pl-4 mb-8">
+            {{ post.summary }}
           </p>
 
           <!-- Content -->

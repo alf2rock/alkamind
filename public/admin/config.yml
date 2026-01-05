@@ -59,6 +59,6 @@ collections:
       - { name: slug, label: Slug, widget: string }
       - { name: date, label: Date, widget: datetime }
       - { name: author, label: Author, widget: string }
-      - { name: excerpt, label: Excerpt, widget: text }
+      - { name: summary, label: Summary/Excerpt, widget: text }
       - { name: body, label: Body, widget: markdown }
       - { name: attachment, label: Attachment (PDF/Document), widget: file, required: false }
