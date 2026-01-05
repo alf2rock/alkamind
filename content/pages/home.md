@@ -1,26 +1,19 @@
 ---
 title: Alkamind
 subtitle: >-
-  We are dedicated to providing small businesses with eCommerce and AI solutions
-  to protect their viability and position them into the Age of AI. 
+  We help small businesses adopt eCommerce and AI solutions that strengthen
+  their viability and prepare them for the Age of AI. Our commitment is to
+  protect your existing technology investments while guiding you toward
+  measurable, positive results.
 
 
-  Most importantly we are committed to doing it while protecting your investments in technology as a key enabler to your business until you start to feel the positive result. 
+  Through our Passion Projects, we offer select clients the opportunity to explore our service portfolio at a significantly reduced cost. Together, we take the time to shape an affordable Proof of Concept (PoC) and evolve it into a business‑aligned pilot. Early engagements are designed only to cover our expenses—giving you a genuine “try before you buy” experience.
 
 
-  Our Passion Projects allow us to explore our service portfolio at a greatly reduced cost to cover basic expenses. 
+  This gradual, collaborative approach allows us to build trust while you evaluate how you’d like to move forward. For our part, we invest our expertise; for your part, only expenses are required as we explore innovative ways to serve your business.
 
 
-  Let us have a conversation and explore if you are a fit into our next Passion Project. We will gently take our time to develop an affordable Proof of Concept (PoC) into a business aligned Pilot. 
-
-
-  This approach of slowly investing time into a working relationship, where you are allowed the opportunity to "try before you buy" can then enable your decision of  what you would like to do next. 
-
-
-  For our part the initial engagement only requires expenses to be covered to pursue our passions of exploring innovative ways to serve. If we can't deliver we will not take up more of your time and certainly will not be charging you. 
-
-
-  Use the contact options below.
+  Use the contact options below to start the conversation.
 ctaText: Book a Session
 ctaLink: https://calendly.com/alf-alkamind/coaching-session
 ---
