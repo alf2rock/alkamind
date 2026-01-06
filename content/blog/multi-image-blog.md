@@ -13,4 +13,6 @@ Text 2
 
 Insert Image 2
 
+![The Human coordinating the work between the the Claude Twins according to their strongest traits. The monitoring and management of Chimarism is a critical balancing act between donor cell (Graft) and Host. The Graft T-cell are needed to attack the diseased cells while dampening their abilities to attack healthy Host cells. The "doctor' will closely monitor to conduct and navigate through these dangerous waters. ](/uploads/static-temperaments.svg "The Human as the Conductor and Doctor of the Transfusion. ")
+
 ![The Aminus team are bringing home the prize, the Anima is the team accepting and processing the 'Prize' to be integrated into the whole.](/uploads/static-gvhd-diagram.svg "GVHD dynamics between Change Animus and Change Anima")
