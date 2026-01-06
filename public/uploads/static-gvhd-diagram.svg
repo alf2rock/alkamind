@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="host-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#bbdefb"/>
+      <stop offset="100%" style="stop-color:#90caf9"/>
+    </linearGradient>
+    <linearGradient id="graft-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffccbc"/>
+      <stop offset="100%" style="stop-color:#ffab91"/>
+    </linearGradient>
+    <linearGradient id="chimera-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#bbdefb"/>
+      <stop offset="50%" style="stop-color:#c8e6c9"/>
+      <stop offset="100%" style="stop-color:#ffccbc"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="4" stdDeviation="4" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="500" fill="#f8fafc"/>
+  
+  <!-- Title -->
+  <text x="400" y="35" text-anchor="middle" font-family="Arial" font-size="22" font-weight="bold" fill="#1e293b">GVHD: Organizational Transformation as Transplant</text>
+  <text x="400" y="58" text-anchor="middle" font-family="Arial" font-size="13" fill="#64748b">Graft-versus-Host Disease — When Two Immune Systems Meet</text>
+  
+  <!-- HOST Organism -->
+  <g transform="translate(150, 200)">
+    <rect x="-90" y="-100" width="180" height="200" rx="40" fill="url(#host-gradient)" stroke="#1565c0" stroke-width="3" filter="url(#shadow)"/>
+    <rect x="-50" y="-120" width="100" height="24" rx="12" fill="#1565c0"/>
+    <text x="0" y="-103" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#ffffff">HOST</text>
+    <text x="0" y="-50" text-anchor="middle" font-family="Arial" font-size="36">🏛️</text>
+    <text x="0" y="-10" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#1565c0">Legacy</text>
+    <text x="0" y="8" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#1565c0">Organization</text>
+    <text x="0" y="40" text-anchor="middle" font-family="Arial" font-size="10" fill="#1976d2">ME • CF • SP</text>
+    <text x="0" y="58" text-anchor="middle" font-family="Arial" font-size="9" fill="#1976d2">Protecting values</text>
+    <text x="0" y="76" text-anchor="middle" font-family="Arial" font-size="9" fill="#1976d2">Quality standards</text>
+  </g>
+  
+  <!-- GRAFT Organism -->
+  <g transform="translate(650, 200)">
+    <rect x="-90" y="-100" width="180" height="200" rx="40" fill="url(#graft-gradient)" stroke="#e65100" stroke-width="3" filter="url(#shadow)"/>
+    <rect x="-50" y="-120" width="100" height="24" rx="12" fill="#e65100"/>
+    <text x="0" y="-103" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#ffffff">GRAFT</text>
+    <text x="0" y="-50" text-anchor="middle" font-family="Arial" font-size="36">🚀</text>
+    <text x="0" y="-10" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#e65100">Transformation</text>
+    <text x="0" y="8" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#e65100">Team</text>
+    <text x="0" y="40" text-anchor="middle" font-family="Arial" font-size="10" fill="#f57c00">SH • PL • RI</text>
+    <text x="0" y="58" text-anchor="middle" font-family="Arial" font-size="9" fill="#f57c00">Driving change</text>
+    <text x="0" y="76" text-anchor="middle" font-family="Arial" font-size="9" fill="#f57c00">New capabilities</text>
+  </g>
+  
+  <!-- CHIMERISM Center -->
+  <g transform="translate(400, 200)">
+    <circle cx="0" cy="0" r="65" fill="url(#chimera-gradient)" stroke="#2e7d32" stroke-width="3" filter="url(#shadow)"/>
+    <text x="0" y="-15" text-anchor="middle" font-family="Arial" font-size="32">🤝</text>
+    <text x="0" y="12" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#2e7d32">Chimerism</text>
+    <text x="0" y="30" text-anchor="middle" font-family="Arial" font-size="9" fill="#388e3c">CO • TW bridge</text>
+  </g>
+  
+  <!-- Connection arrows -->
+  <path d="M 250 200 L 330 200" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)" stroke-dasharray="6,3"/>
+  <path d="M 470 200 L 550 200" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)" stroke-dasharray="6,3"/>
+  
+  <!-- Arrow marker -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+    </marker>
+  </defs>
+  
+  <!-- GVHD Risk Spectrum -->
+  <g transform="translate(100, 380)">
+    <rect x="0" y="0" width="600" height="50" rx="8" fill="url(#risk-gradient)"/>
+    <text x="300" y="-10" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#374151">GVHD Risk Spectrum</text>
+    <text x="50" y="30" text-anchor="middle" font-family="Arial" font-size="10" fill="#166534">Low Risk</text>
+    <text x="50" y="42" text-anchor="middle" font-family="Arial" font-size="8" fill="#166534">Balanced Triad</text>
+    <text x="300" y="30" text-anchor="middle" font-family="Arial" font-size="10" fill="#92400e">Medium Risk</text>
+    <text x="300" y="42" text-anchor="middle" font-family="Arial" font-size="8" fill="#92400e">High PL, Low IMP</text>
+    <text x="550" y="30" text-anchor="middle" font-family="Arial" font-size="10" fill="#991b1b">High Risk</text>
+    <text x="550" y="42" text-anchor="middle" font-family="Arial" font-size="8" fill="#991b1b">High SH, Low TW</text>
+  </g>
+  
+  <defs>
+    <linearGradient id="risk-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#dcfce7"/>
+      <stop offset="50%" style="stop-color:#fef3c7"/>
+      <stop offset="100%" style="stop-color:#fee2e2"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Medical Translation boxes -->
+  <g transform="translate(100, 450)">
+    <rect x="0" y="0" width="140" height="40" rx="6" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+    <text x="10" y="16" font-family="Arial" font-size="9" fill="#374151">🧬 HLA Matching</text>
+    <text x="10" y="30" font-family="Arial" font-size="8" fill="#6b7280">→ Cultural Alignment</text>
+  </g>
+  <g transform="translate(250, 450)">
+    <rect x="0" y="0" width="140" height="40" rx="6" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+    <text x="10" y="16" font-family="Arial" font-size="9" fill="#374151">🔬 T-Cell Depletion</text>
+    <text x="10" y="30" font-family="Arial" font-size="8" fill="#6b7280">→ Arrogance Filter</text>
+  </g>
+  <g transform="translate(400, 450)">
+    <rect x="0" y="0" width="140" height="40" rx="6" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+    <text x="10" y="16" font-family="Arial" font-size="9" fill="#374151">💊 Immunosuppression</text>
+    <text x="10" y="30" font-family="Arial" font-size="8" fill="#6b7280">→ Safe-to-Fail Truce</text>
+  </g>
+  <g transform="translate(550, 450)">
+    <rect x="0" y="0" width="140" height="40" rx="6" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+    <text x="10" y="16" font-family="Arial" font-size="9" fill="#374151">🔮 Chimerism</text>
+    <text x="10" y="30" font-family="Arial" font-size="8" fill="#6b7280">→ Integrated Governance</text>
+  </g>
+</svg>
