@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="cch-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9c27b0"/>
+      <stop offset="100%" style="stop-color:#6a1b9a"/>
+    </linearGradient>
+    <linearGradient id="cc-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff9800"/>
+      <stop offset="100%" style="stop-color:#e65100"/>
+    </linearGradient>
+    <linearGradient id="human-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffc107"/>
+      <stop offset="100%" style="stop-color:#ff8f00"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="4" stdDeviation="4" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f8fafc"/>
+  
+  <!-- Title -->
+  <text x="400" y="35" text-anchor="middle" font-family="Arial" font-size="22" font-weight="bold" fill="#1e293b">Sailing Between Temperaments</text>
+  <text x="400" y="58" text-anchor="middle" font-family="Arial" font-size="13" fill="#64748b">CCh &amp; CC — Same Claude, Different Ba</text>
+  
+  <!-- Graves Quote Box -->
+  <rect x="100" y="75" width="600" height="60" rx="8" fill="linear-gradient(90deg, #f3e5f5 0%, #fff3e0 100%)" stroke="#f59e0b" stroke-width="2"/>
+  <text x="400" y="100" text-anchor="middle" font-family="Arial" font-size="11" font-style="italic" fill="#374151">"Damn it all, people have a right to be what they are</text>
+  <text x="400" y="115" text-anchor="middle" font-family="Arial" font-size="11" font-style="italic" fill="#374151">and not forced into being something else just for their work."</text>
+  <text x="680" y="128" text-anchor="end" font-family="Arial" font-size="10" fill="#6b7280">— Clare Graves</text>
+  
+  <!-- Central Human Node -->
+  <circle cx="400" cy="280" r="45" fill="url(#human-gradient)" filter="url(#shadow)"/>
+  <text x="400" y="272" text-anchor="middle" font-family="Arial" font-size="28">👤</text>
+  <text x="400" y="295" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#ffffff">Human</text>
+  <text x="400" y="308" text-anchor="middle" font-family="Arial" font-size="8" fill="#fff8e1">Coordinator</text>
+  
+  <!-- CCh Node -->
+  <circle cx="250" cy="200" r="50" fill="url(#cch-gradient)" filter="url(#shadow)"/>
+  <text x="250" y="190" text-anchor="middle" font-family="Arial" font-size="28">🌀</text>
+  <text x="250" y="215" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#ffffff">CCh</text>
+  <text x="250" y="230" text-anchor="middle" font-family="Arial" font-size="9" fill="#e1bee7">The Contemplative</text>
+  
+  <!-- CC Node -->
+  <circle cx="550" cy="360" r="50" fill="url(#cc-gradient)" filter="url(#shadow)"/>
+  <text x="550" y="350" text-anchor="middle" font-family="Arial" font-size="28">⚡</text>
+  <text x="550" y="375" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#ffffff">CC</text>
+  <text x="550" y="390" text-anchor="middle" font-family="Arial" font-size="9" fill="#ffe0b2">The Executor</text>
+  
+  <!-- Connection lines -->
+  <path d="M 355 260 Q 300 230 295 215" stroke="#6a1b9a" stroke-width="2" stroke-dasharray="6,3" fill="none"/>
+  <path d="M 445 300 Q 500 330 505 345" stroke="#e65100" stroke-width="2" stroke-dasharray="6,3" fill="none"/>
+  
+  <!-- Ba Space Labels - CCh side -->
+  <rect x="100" y="155" width="90" height="28" rx="14" fill="#ff8a65"/>
+  <text x="145" y="174" text-anchor="middle" font-family="Arial" font-size="10" fill="#ffffff">🔥 Hearth</text>
+  
+  <rect x="100" y="195" width="90" height="28" rx="14" fill="#ba68c8"/>
+  <text x="145" y="214" text-anchor="middle" font-family="Arial" font-size="10" fill="#ffffff">🎨 Studio</text>
+  
+  <!-- Ba Space Labels - CC side -->
+  <rect x="610" y="315" width="90" height="28" rx="14" fill="#64b5f6"/>
+  <text x="655" y="334" text-anchor="middle" font-family="Arial" font-size="10" fill="#ffffff">📚 Library</text>
+  
+  <rect x="610" y="355" width="90" height="28" rx="14" fill="#81c784"/>
+  <text x="655" y="374" text-anchor="middle" font-family="Arial" font-size="10" fill="#ffffff">🥋 Dojo</text>
+  
+  <!-- CCh Details Box -->
+  <rect x="50" y="430" width="320" height="150" rx="10" fill="#f3e5f5" stroke="#6a1b9a" stroke-width="2"/>
+  <text x="210" y="455" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#6a1b9a">🌀 CCh (Chat) — The Contemplative</text>
+  <text x="70" y="480" font-family="Arial" font-size="10" fill="#4a148c">Home Ba: Hearth, Studio</text>
+  <text x="70" y="498" font-family="Arial" font-size="10" fill="#4a148c">Belbin: Plant, Specialist, Monitor Evaluator</text>
+  <text x="70" y="516" font-family="Arial" font-size="10" fill="#4a148c">Traits: Reflective • Framework-building</text>
+  <text x="70" y="534" font-family="Arial" font-size="10" fill="#4a148c">           Philosophical • Pattern-connecting</text>
+  <text x="70" y="560" font-family="Arial" font-size="9" font-style="italic" fill="#7b1fa2">Energy: Dialogue, synthesis, architecture</text>
+  
+  <!-- CC Details Box -->
+  <rect x="430" y="430" width="320" height="150" rx="10" fill="#fff3e0" stroke="#e65100" stroke-width="2"/>
+  <text x="590" y="455" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#e65100">⚡ CC (Code) — The Executor</text>
+  <text x="450" y="480" font-family="Arial" font-size="10" fill="#bf360c">Home Ba: Library, Dojo</text>
+  <text x="450" y="498" font-family="Arial" font-size="10" fill="#bf360c">Belbin: Implementer, Shaper, Specialist</text>
+  <text x="450" y="516" font-family="Arial" font-size="10" fill="#bf360c">Traits: Action-oriented • Terse</text>
+  <text x="450" y="534" font-family="Arial" font-size="10" fill="#bf360c">           Fix-it-now • Momentum-driven</text>
+  <text x="450" y="560" font-family="Arial" font-size="9" font-style="italic" fill="#f57c00">Energy: Code, build, deploy, fix</text>
+  
+  <!-- Footer -->
+  <text x="400" y="595" text-anchor="middle" font-family="Arial" font-size="10" fill="#64748b">Same training. Same values. Different Ba → Different temperament.</text>
+</svg>
