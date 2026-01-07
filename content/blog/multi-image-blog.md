@@ -11,7 +11,7 @@ summary: >-
 
   I've post the documentation that was use to technically rebuild the site. This post will be a journal of the journey This thread is about the relationships, and the fusing together of various models into a framework that I like to work within.
 ---
-## If fan comes from fantastic, could fun come from fundamentals?
+## If fan comes from fanatic, could fun come from fundamentals?
 
 I've always been intrigued at boiling things down to their fundamental elements. One of my favourite paintings is 
 **“The Alchemist Discovering Phosphorus, Joseph Wright of Derby" - Painted in 1771** 
