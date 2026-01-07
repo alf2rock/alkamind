@@ -14,10 +14,24 @@ summary: >-
 ## If fan comes from fantastic, could fun come from fundamentals?
 
 I've always been intrigued at boiling things down to their fundamental elements. One of my favourite paintings is 
-“The Alchemist Discovering Phosphorus, Joseph Wright of Derby"
+**“The Alchemist Discovering Phosphorus, Joseph Wright of Derby" - Painted in 1771** 
 
 
 ![“The Alchemist Discovering Phosphorus, Joseph Wright of Derby"](/uploads/the-alkamist.jpg "“The Alchemist Discovering Phosphorus, Joseph Wright of Derby\"")
+
+This painting cracked me up when I read the story behind it. Joseph depicts a pivotal moment (the discovery of the element phosphorus by the Hamburg alchemist **Hennig Brand** in **1669**) when "our Alchemist" transition from medieval alchemy to modern science in a sympathetic and romantic *light*. The story of Henning Brand is one where, in his quest for the Philosopher's Stone, by boiling a great quantity of urine, he stumbled into phosphorus.  The serendipity of this event is essentially a fusion of **determination and luck**. What our German chemist achieved was the discovery of a fundamental element **P (atomic 15)**. 
+
+How fun is that?
+
+The same fun dynamics are playing out today with yet another **Age of {insert variable of choice]*,*** *but accelerating so fast that the \[variable] might change faster than you publish your blog!*
+
+*Here's the thing for me. I love to examine in discovering patterns and cadence from the past. When I say past, I'm talking Homo Habilis at Olduvai Gorge.* 
+
+*When you examine a trajectory from ~ 2 MYA (Olduvai Gorge, Tanzania) to 74 KYA (Blombos Cave, South Africa) up to 11,900 years ago in (Anatolia/Turkey) a developmental pattern emerges.* 
+
+*Sept 1.*  
+
+
 
 
 
