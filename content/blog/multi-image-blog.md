@@ -9,7 +9,7 @@ summary: >-
   If that works, we should try it. So this is the journal, which might become a
   story some day. 
 
-  I've post the documentation that was use to technically rebuild the site. The rest will be a journal of the journey This thread is about the relationships, and the fusing together of various models into a framework the I like to work in.
+  I've post the documentation that was use to technically rebuild the site. The rest will be a journal of the journey This thread is about the relationships, and the fusing together of various models into a framework that I like to work in.
 ---
 ## If fan comes from fantastic, could fun come from fundamentals?
 
