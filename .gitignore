@@ -17,6 +17,10 @@ logs
 .DS_Store
 .fleet
 .idea
+nul
+
+# Claude Code
+.claude/
 
 # Local env files
 .env
