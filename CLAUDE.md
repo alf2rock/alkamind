@@ -22,20 +22,77 @@ npm run preview   # Preview production build locally
 
 This project uses Nuxt 4's app directory structure:
 
-- `app/` - Main application code (Nuxt 4 convention)
-  - `app.vue` - Root application component
-  - `pages/` - File-based routing (create files here to add routes)
-  - `components/` - Auto-imported Vue components
-  - `layouts/` - Page layouts
-  - `composables/` - Auto-imported composables
-- `content/` - Markdown content files (managed by Decap CMS)
-  - `pages/` - Static page content (home, about, our-story, etc.)
-  - `blog/` - Blog posts
-- `public/admin/` - Decap CMS admin interface
-- `nuxt.config.ts` - Nuxt configuration
-- `netlify.toml` - Netlify deployment config
+```
+alkamind/
+├── app/                           # Main Nuxt 4 application
+│   ├── app.vue                    # Root component (Netlify Identity init + redirect to /admin on login)
+│   ├── pages/                     # File-based routing
+│   │   ├── index.vue              # Home page (hero, contact info, footer image)
+│   │   ├── about.vue              # About Us (ContentRenderer from about.md)
+│   │   ├── our-story.vue          # Our Story (ContentRenderer from our-story.md)
+│   │   ├── use-cases.vue          # Use Cases (ContentRenderer from use-cases.md)
+│   │   ├── ai-portals.vue         # AI Portals (ContentRenderer from ai-portals.md)
+│   │   └── blog/
+│   │       ├── index.vue          # Blog listing (sorted by date, newest first)
+│   │       └── [...slug].vue      # Blog post detail (title, date, author, summary, content, attachments)
+│   ├── components/
+│   │   └── NavBar.vue             # Sticky responsive nav with hamburger menu on mobile
+│   ├── composables/               # (none currently)
+│   └── layouts/
+│       └── default.vue            # Default layout: gradient bg, NavBar, Times New Roman font
+├── content/                       # Markdown content (managed by Decap CMS)
+│   ├── pages/
+│   │   ├── home.md                # title, subtitle, ctaText, ctaLink
+│   │   ├── about.md               # title, body
+│   │   ├── our-story.md           # title, body
+│   │   ├── use-cases.md           # title, body
+│   │   └── ai-portals.md          # title, body (with inline images)
+│   └── blog/
+│       ├── ai-human-team.md       # AI-Human Collaboration post (2 attachments)
+│       └── ai-portal-content-from-theatro.md  # Theatro AI Portal post
+├── public/
+│   ├── admin/
+│   │   ├── index.html             # Decap CMS entry point (loads Netlify Identity + CMS CDN)
+│   │   └── config.yml             # CMS collections & fields config
+│   ├── uploads/                   # Media uploaded via CMS
+│   └── images/                    # Static images
+├── docs/                          # Project documentation & memos
+├── nuxt.config.ts                 # Modules: @nuxtjs/tailwindcss, @nuxt/content
+├── tailwind.config.ts             # Typography plugin only, minimal config
+└── netlify.toml                   # Build: npm run generate → dist/
+```
 
 Nuxt auto-imports components, composables, and utilities - no manual imports needed.
+
+### Key Dependencies
+
+- `nuxt` ^4.2.2, `vue` ^3.5.25, `vue-router` ^4.6.4
+- `@nuxt/content` ^2.13.4 — Markdown parsing & querying
+- `@nuxtjs/tailwindcss` ^6.14.0 — Tailwind integration
+- `@tailwindcss/typography` ^0.5.19 — Prose classes for rendered markdown
+- `better-sqlite3` ^12.5.0 — SQLite (Nuxt Content internals)
+
+### Common Page Pattern
+
+All content pages follow the same pattern:
+
+```typescript
+const { data: page } = await useAsyncData('key', () =>
+  queryContent('/pages/page-name').findOne()
+)
+useSeoMeta({ title: page.value?.title, description: '...' })
+```
+
+### Design Tokens
+
+- **Font**: Times New Roman, Times, serif (set in default layout)
+- **Colors**: Blue theme — blue-600, blue-700, blue-800, blue-900
+- **Background**: Gradient from slate-50 to blue-50
+- **Responsive**: Tailwind `md:` breakpoints, hamburger nav on mobile
+
+### Nav Links (NavBar.vue)
+
+Home | Our Story | About Us | Blog | AI Portals | Use Cases
 
 ## Branch Strategy
 
@@ -199,4 +256,21 @@ Drafts created before config changes won't have new fields. Either merge updates
 The CMS commits directly to the branch. If push fails, run `git pull --rebase` first.
 
 ## Reference Documentation
+
 - `docs/memo-1-claude-code-decap-cms.md` - Troubleshooting guide for Decap CMS + Nuxt Content issues
+- `docs/memo-2-blog-images.md` - Blog image implementation options (Option 1 selected: inline markdown images)
+- `docs/project-cheat-sheet.md` - Quick reference for commands, branch strategy, file locations
+- `docs/nuxt-rebuild-guide.md` - Original rebuild implementation guide (references Contentful — outdated, now uses Decap)
+- `docs/nuxt-rebuild-version-history.md` - Version history of rebuilds
+- `docs/v6-implementation-log.md` - Implementation log for v6
+- `docs/change-governance-patterns.md` - Governance patterns documentation
+
+## Public Assets
+
+Key static files in `public/`:
+- `logo Alkamind.jpg` — Site logo (used in NavBar)
+- `Hypatia.jpg`, `Tomomi.jpg` — Portrait images (AI Portals)
+- `stratified-governance-model.jpg` — Footer image on home page
+- `favicon.ico` — Browser tab icon
+- `uploads/` — CMS-uploaded media (PDFs, images)
+- `images/` — Static reference images and diagrams
