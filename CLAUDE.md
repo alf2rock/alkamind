@@ -96,8 +96,8 @@ Home | Our Story | About Us | Blog | AI Portals | Use Cases
 
 ## Branch Strategy
 
-- `main` — Production (live site) — DO NOT push directly during development
-- `nuxt-rebuild` — Development branch (all work happens here)
+- `main` — Production and development (all work happens here)
+- `nuxt-rebuild` — Legacy development branch (rebuild complete, no longer active)
 - `v1-react-backup` — Safety backup of original React site
 
 ## Integrations
