@@ -6,7 +6,7 @@ Explore our AI-powered tools and portals designed to help small businesses lever
 
 ---
 
-## [AlkaPlay: The Corridor of Delphi](https://alkaplay.alkamind.com/)
+## <a href="https://alkaplay.alkamind.com/" target="_blank">AlkaPlay: The Corridor of Delphi</a>
 
 <img src="/Hypatia.jpg" alt="Hypatia - Guardian of the Corridor" style="float: left; width: 120px; margin-right: 1rem; margin-bottom: 0.5rem; border-radius: 8px;" />
 
@@ -26,5 +26,5 @@ Within these marble halls, Tomomi will guide you to rooms dedicated to profound 
 
 Whether you're a first-time visitor or a returning seeker, the Corridor remembers your journey and welcomes you back to continue where you left off.
 
-[**Enter the Corridor of Delphi →**](https://alkaplay.alkamind.com/)
+<a href="https://alkaplay.alkamind.com/" target="_blank"><strong>Enter the Corridor of Delphi →</strong></a>
 
