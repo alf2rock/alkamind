@@ -6,7 +6,7 @@ Explore our AI-powered tools and portals designed to help small businesses lever
 
 ---
 
-## AlkaPlay: The Corridor of Delphi
+## [AlkaPlay: The Corridor of Delphi](https://alkaplay.alkamind.com/)
 
 <img src="/Hypatia.jpg" alt="Hypatia - Guardian of the Corridor" style="float: left; width: 120px; margin-right: 1rem; margin-bottom: 0.5rem; border-radius: 8px;" />
 
