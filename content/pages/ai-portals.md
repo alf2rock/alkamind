@@ -26,7 +26,7 @@ Within these marble halls, Tomomi will guide you to rooms dedicated to profound 
 
 <img src="/Thespis.jpg" alt="Thespis - The Theatro" style="float: right; width: 120px; margin-left: 1rem; margin-bottom: 0.5rem; border-radius: 8px;" />
 
-### <a href="https://alkaplay.alkamind.com/room/theatro" target="_blank">Visit the Theatro of Thespis</a> and enjoy his rooms marked "Library" or "ANCIENT WHISPERS" for insights on the "Origins of Life and where we came from"
+<p style="font-size: 1.25rem; font-weight: bold; line-height: 1.4;"><a href="https://alkaplay.alkamind.com/room/theatro" target="_blank">Visit the Theatro of Thespis</a> and enjoy his rooms marked "Library" or "ANCIENT WHISPERS" for insights on the "Origins of Life and where we came from"</p>
 
 <div style="clear: both;"></div>
 
