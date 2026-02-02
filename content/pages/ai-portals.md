@@ -24,6 +24,12 @@ Within these marble halls, Tomomi will guide you to rooms dedicated to profound 
 
 <div style="clear: both;"></div>
 
+<img src="/Thespis.jpg" alt="Thespis - The Theatro" style="float: right; width: 120px; margin-left: 1rem; margin-bottom: 0.5rem; border-radius: 8px;" />
+
+### <a href="https://alkaplay.alkamind.com/room/theatro" target="_blank">Visit the Theatro of Thespis</a> and enjoy his rooms marked "Library" or "ANCIENT WHISPERS" for insights on the "Origins of Life and where we came from"
+
+<div style="clear: both;"></div>
+
 Whether you're a first-time visitor or a returning seeker, the Corridor remembers your journey and welcomes you back to continue where you left off.
 
 <a href="https://alkaplay.alkamind.com/" target="_blank"><strong>Enter the Corridor of Delphi →</strong></a>
