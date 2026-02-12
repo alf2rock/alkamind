@@ -21,5 +21,5 @@ ctaText: Explore by Playing
 ctaLink: https://alkaplay.alkamind.com/
 cta2Text: Book a Session
 cta2Link: https://calendly.com/alf-alkamind/coaching-session
-heroImage: /uploads/hypatia.jpg
+heroImage: /uploads/tomomi.jpg
 ---
