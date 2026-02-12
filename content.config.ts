@@ -4,7 +4,12 @@ export default defineContentConfig({
   collections: {
     pages: defineCollection({
       type: 'page',
-      source: 'pages/*.md'
+      source: 'pages/*.md',
+      schema: z.object({
+        subtitle: z.string().optional(),
+        ctaText: z.string().optional(),
+        ctaLink: z.string().optional()
+      })
     }),
     blog: defineCollection({
       type: 'page',
