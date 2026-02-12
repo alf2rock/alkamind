@@ -5,15 +5,8 @@
 [build.environment]
   NODE_VERSION = "20"
 
-# CMS Admin — permissive (behind Netlify Identity auth)
-# Must come before the wildcard rule. Decap CMS needs unsafe-eval,
-# blob URLs, and many external services for media and Git Gateway.
-[[headers]]
-  for = "/admin/*"
-  [headers.values]
-    Content-Security-Policy = "default-src * 'self' 'unsafe-inline' 'unsafe-eval' blob: data:;"
-
-# Security Headers — public site (strict)
+# Security Headers (CSP is handled via meta tag in nuxt.config.ts
+# so it only applies to Nuxt pages, not the /admin CMS)
 [[headers]]
   for = "/*"
   [headers.values]
@@ -21,4 +14,3 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     X-XSS-Protection = "1; mode=block"
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://identity.netlify.com https://unpkg.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://api.netlify.com https://calendly.com; frame-src https://calendly.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self';"
