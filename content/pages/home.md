@@ -13,10 +13,10 @@ subtitle: >-
   This gradual, collaborative approach allows us to build trust while you evaluate how you’d like to move forward. For our part, we invest our expertise; for your part, only expenses are required as we explore innovative ways to serve your business.
 
 
-  Use this link to explore with Hypatia your personas and learning styles.
+  Use the link below to explore with Hypatia your personas and learning styles; 
 
 
-  or Calendly contact options below to start the conversation with a human.
+  or Calendly contact options below to book a session with a human.
 ctaText: Explore by Playing
 ctaLink: https://alkaplay.alkamind.com/
 cta2Text: Book a Session
