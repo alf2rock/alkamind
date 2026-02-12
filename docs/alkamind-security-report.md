@@ -123,10 +123,21 @@ Full security audit of the Alkamind marketing website covering 8 review areas fr
 
 **Status:** FIXED (was FAIL)
 
-**Before:** No security headers configured in netlify.toml
+**Before:** No security headers configured
 
-**After (applied in this PR):**
+**After (revised approach — updated 2026-02-12):**
 
+CSP is delivered via a `<meta http-equiv="Content-Security-Policy">` tag in `nuxt.config.ts`, not via Netlify headers. This was necessary because Netlify merges headers from all matching `[[headers]]` rules — a `/admin/*` exemption could not override the `/*` wildcard. By using a Nuxt meta tag, the CSP is baked into every Nuxt-rendered public page but does **not** apply to the standalone `/admin/index.html` (Decap CMS).
+
+**Public pages (all Nuxt-rendered HTML):**
+```html
+<meta http-equiv="Content-Security-Policy"
+  content="default-src 'self'; script-src 'self' 'unsafe-inline' https://identity.netlify.com https://unpkg.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://api.netlify.com https://calendly.com; frame-src https://calendly.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self';" />
+```
+
+**CMS admin (`/admin/index.html`):** No CSP. Decap CMS requires `unsafe-eval`, `blob:` URLs, and connections to multiple external services (Git Gateway, Cloudflare Insights, netlifystatus.com, unpkg source maps). Since `/admin` is protected by Netlify Identity authentication, a restrictive CSP adds no practical security value.
+
+**Non-CSP security headers (netlify.toml, all paths including admin):**
 ```toml
 [[headers]]
   for = "/*"
@@ -135,19 +146,20 @@ Full security audit of the Alkamind marketing website covering 8 review areas fr
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     X-XSS-Protection = "1; mode=block"
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://identity.netlify.com https://unpkg.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://api.netlify.com https://calendly.com; frame-src https://calendly.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self';"
 ```
 
-**CSP Policy Breakdown:**
+**CSP Policy Breakdown (public pages):**
 | Directive | Value | Reason |
 |-----------|-------|--------|
 | default-src | 'self' | Only load resources from same origin |
-| script-src | 'self' 'unsafe-inline' identity.netlify.com unpkg.com | Nuxt inline scripts + CMS admin dependencies |
+| script-src | 'self' 'unsafe-inline' identity.netlify.com unpkg.com | Nuxt inline scripts + Netlify Identity widget |
 | style-src | 'self' 'unsafe-inline' | Tailwind CSS injects inline styles |
 | img-src | 'self' data: https: | Allow images from any HTTPS source (blog content) |
 | connect-src | 'self' api.netlify.com calendly.com | Netlify Identity API + Calendly |
 | frame-src | calendly.com | Allow Calendly embed if used |
 | frame-ancestors | 'none' | Prevent clickjacking (site cannot be iframed) |
+
+**Lesson learned:** Netlify's `[[headers]]` rules merge rather than override. When two rules match the same path (`/*` and `/admin/*`), the browser receives both CSP headers and enforces the intersection (most restrictive). The only way to exempt a path from CSP on Netlify is to avoid using headers for CSP entirely and use a different delivery mechanism (meta tags, per-page injection) instead.
 
 ---
 
