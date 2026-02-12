@@ -20,6 +20,9 @@ collections:
           - { name: subtitle, label: Subtitle, widget: markdown }
           - { name: ctaText, label: CTA Button Text, widget: string }
           - { name: ctaLink, label: CTA Button Link, widget: string }
+          - { name: cta2Text, label: CTA Button Text 2, widget: string, required: false }
+          - { name: cta2Link, label: CTA Button Link 2, widget: string, required: false }
+          - { name: heroImage, label: Hero Image, widget: image, required: false }
 
       - name: our-story
         label: Our Story

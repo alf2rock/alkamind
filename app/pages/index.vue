@@ -20,14 +20,33 @@ useSeoMeta({
         <div class="text-lg md:text-xl text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed whitespace-pre-line text-left">
           {{ home?.subtitle || 'We are dedicated to providing small businesses with eComm and AI solutions to protect their viability and position them into the Age of AI.' }}
         </div>
-        <a
-          :href="home?.ctaLink || 'https://calendly.com/alf-alkamind/coaching-session'"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 rounded-lg text-lg transition-colors duration-200 shadow-lg hover:shadow-xl"
-        >
-          {{ home?.ctaText || 'Book a Session' }}
-        </a>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a
+            :href="home?.ctaLink || 'https://calendly.com/alf-alkamind/coaching-session'"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 rounded-lg text-lg transition-colors duration-200 shadow-lg hover:shadow-xl"
+          >
+            {{ home?.ctaText || 'Book a Session' }}
+          </a>
+          <a
+            v-if="home?.cta2Text && home?.cta2Link"
+            :href="home.cta2Link"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-block border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold px-8 py-4 rounded-lg text-lg transition-colors duration-200"
+          >
+            {{ home.cta2Text }}
+          </a>
+        </div>
+
+        <div v-if="home?.heroImage" class="mt-10">
+          <img
+            :src="home.heroImage"
+            :alt="home?.title || 'Alkamind'"
+            class="mx-auto rounded-lg shadow-md max-w-full"
+          />
+        </div>
       </div>
     </section>
 

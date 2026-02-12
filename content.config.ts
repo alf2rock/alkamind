@@ -8,7 +8,10 @@ export default defineContentConfig({
       schema: z.object({
         subtitle: z.string().optional(),
         ctaText: z.string().optional(),
-        ctaLink: z.string().optional()
+        ctaLink: z.string().optional(),
+        cta2Text: z.string().optional(),
+        cta2Link: z.string().optional(),
+        heroImage: z.string().optional()
       })
     }),
     blog: defineCollection({
