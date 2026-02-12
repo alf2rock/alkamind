@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const { data: posts } = await useAsyncData('blog-posts', () =>
-  queryContent('/blog').sort({ date: -1 }).find()
+  queryCollection('blog').order('date', 'DESC').all()
 )
 
 useSeoMeta({
@@ -35,10 +35,10 @@ const formatDate = (dateString: string) => {
         <div v-if="posts && posts.length > 0" class="space-y-8">
           <article
             v-for="post in posts"
-            :key="post._path"
+            :key="post.path"
             class="bg-white rounded-lg shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow"
           >
-            <NuxtLink :to="post._path" class="block p-6">
+            <NuxtLink :to="post.path" class="block p-6">
               <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
                 <h2 class="text-xl font-semibold text-blue-800 hover:text-blue-600 transition-colors">
                   {{ post.title }}
