@@ -5,7 +5,7 @@
 [build.environment]
   NODE_VERSION = "20"
 
-# Security Headers
+# Security Headers — public site (strict)
 [[headers]]
   for = "/*"
   [headers.values]
@@ -14,3 +14,9 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     X-XSS-Protection = "1; mode=block"
     Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://identity.netlify.com https://unpkg.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://api.netlify.com https://calendly.com; frame-src https://calendly.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self';"
+
+# CMS Admin — relaxed CSP (behind Netlify Identity auth)
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://identity.netlify.com https://unpkg.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://api.netlify.com https://*.github.com https://*.netlify.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self';"
