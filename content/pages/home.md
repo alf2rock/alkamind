@@ -13,7 +13,10 @@ subtitle: >-
   This gradual, collaborative approach allows us to build trust while you evaluate how you’d like to move forward. For our part, we invest our expertise; for your part, only expenses are required as we explore innovative ways to serve your business.
 
 
-  Use the contact options below to start the conversation.
+  Use this link to explore with [Hypatia (AI Portal)](<>)[](<>)  
+
+
+  or Calendly contact options below to start the conversation with a human.
 ctaText: Book a Session
 ctaLink: https://calendly.com/alf-alkamind/coaching-session
 ---
