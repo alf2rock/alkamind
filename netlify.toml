@@ -15,8 +15,11 @@
     X-XSS-Protection = "1; mode=block"
     Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://identity.netlify.com https://unpkg.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://api.netlify.com https://calendly.com; frame-src https://calendly.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self';"
 
-# CMS Admin — relaxed CSP (behind Netlify Identity auth)
+# CMS Admin — no CSP (behind Netlify Identity auth)
+# Decap CMS requires broad permissions for media uploads, blob previews,
+# Git Gateway API calls, and Cloudflare analytics. Since /admin is
+# protected by Netlify Identity, a restrictive CSP adds no real value.
 [[headers]]
   for = "/admin/*"
   [headers.values]
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://identity.netlify.com https://unpkg.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' blob: https://api.netlify.com https://*.github.com https://*.netlify.com https://*.netlifystatus.com https://unpkg.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self';"
+    Content-Security-Policy = ""
