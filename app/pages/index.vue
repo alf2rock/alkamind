@@ -44,7 +44,7 @@ useSeoMeta({
           <img
             :src="home.heroImage"
             :alt="home?.title || 'Alkamind'"
-            class="mx-auto rounded-lg shadow-md max-w-full"
+            class="mx-auto rounded-lg shadow-md max-w-full max-h-80 object-contain"
           />
         </div>
       </div>
