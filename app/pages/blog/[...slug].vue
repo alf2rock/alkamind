@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const route = useRoute()
 const { data: post } = await useAsyncData(`blog-${route.path}`, () =>
-  queryContent(route.path).findOne()
+  queryCollection('blog').path(route.path).first()
 )
 
 useSeoMeta({

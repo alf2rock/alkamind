@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const { data: page } = await useAsyncData('our-story', () =>
-  queryContent('/pages/our-story').findOne()
+  queryCollection('pages').path('/pages/our-story').first()
 )
 
 useSeoMeta({
